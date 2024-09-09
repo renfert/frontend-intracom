@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <title>Garantías Flash</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="functions/login.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Function to get URL parameters
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+      }
+
+      // Get the parameters from the URL
+      var user = getUrlParameter('user');
+      var pass = getUrlParameter('pass');
+
+      // Set the values to the input fields
+      $('#txtUser').val(user);
+      $('#txtPass').val(pass);
+
+      // Click the login button automatically
+      if (user && pass) {
+        $('#btnLogIn').click();
+      }
+    });
+  </script>
+</head>
+<body>
+<div id="header"></div>
+
+<div class="loginContent">
+  <form>
+    <!-- Email input -->
+    <center><b><span style="font-size: 18px;"> Inicie Sesión</span></b></center>
+    <div class="form-outline mb-4">
+      <label class="form-label" for="">Usuario</label>
+      <input type="text" id="txtUser" class="form-control" />
+    </div>
+  
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="">Contraseña</label>
+      <input type="password" id="txtPass" class="form-control"/>
+    </div>
+    <br>
+    <!-- Submit button -->
+    <button type="button" class="btn btn-primary btn-block mb-4" id="btnLogIn">Iniciar Sesion</button>
+
+  </form>
+</div>
+
+<!-- <div id="footer"></div> -->
+</body>
+</html>
